@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/organicphase.css">
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Organic Phase</title>
+</head>
+<body>
+    <div class="formbody">
+        <form id="extractionrecord">
+            <div class="page">
+                <h2>Organic Phase</h2>
+                <div class="extractants">
+                    <h4>Extractants:</h4>
+                    <div class="inputgroup">
+                        <div class="inputheader">
+                            <p class="inputnum">Extractant 1</p>
+                            <button type="button" disabled><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        <div class="input1">
+                            <p>Identity</p>
+                            <input placeholder="Identity" type="text" required/>
+                        </div>
+                        <div class="inputunit">
+                        <div class="input2">
+                            <p>Quantity</p>
+                            <input placeholder="Quantity" type="number" required/>
+                        </div>
+                        <div class="unit">
+                            <p>Unit</p>
+                            <select name="unit" id="unitdropdown">
+                                <option value="molarity">M</option>
+                            </select>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page">
+                <h2>Aqueous Phase</h2>
+                <div class="extractants">
+                    <h4>Solutes:</h4>
+                    <div class="inputgroup">
+                        <div class="inputheader">
+                            <p class="inputnum">Solute 1</p>
+                            <button type="button" disabled><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        <div class="input1">
+                            <p>Identity</p>
+                            <input placeholder="Identity" type="text" required/>
+                        </div>
+                        <div class="inputunit">
+                        <div class="input2">
+                            <p>Quantity</p>
+                            <input placeholder="Quantity" type="number" required/>
+                        </div>
+                        <div class="unit">
+                            <p>Unit</p>
+                            <select name="unit" id="unitdropdown">
+                                <option value="molarity">M</option>
+                            </select>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="changepage">
+                <button id="previous" type="button" onclick="nextPrev(-1)" disabled>Previous</button>
+                <button id="next" type="button" onclick="nextPrev(1)">Next</button>
+            </div>
+        </form>
+    </div>
+    <script src="scripts/form.js"></script>
+</body>
+</html>
