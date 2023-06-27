@@ -7,7 +7,7 @@ function showTab(n) {
     if (n == 0) {
       document.getElementById("previous").style.display = "none";
     } else {
-      document.getElementById("next").style.display = "inline";
+      document.getElementById("previous").style.display = "inline";
     }
     if (n == (x.length - 1)) {
       document.getElementById("next").innerHTML = "Submit";
@@ -24,7 +24,9 @@ function nextPrev(n) {
     currentTab = currentTab + n;
     
     if (currentTab >= x.length) {
-      document.getElementById("extractionrecord").submit();
+      document.getElementById("extractionrecord").submit((e) => {
+        e.preventDefault();
+      });
       return false;
     }
     showTab(currentTab);

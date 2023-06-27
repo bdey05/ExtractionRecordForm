@@ -10,7 +10,7 @@
     <title>Organic Phase</title>
 </head>
 <body>
-    <div class="formbody">
+    <div class="formbody" onsubmit="return false">
         <form id="extractionrecord">
             <div class="page">
                 <h2>Organic Phase</h2>
@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div class="changepage">
-                <button id="previous" type="button" onclick="nextPrev(-1)" disabled>Previous</button>
+                <button id="previous" type="button" onclick="nextPrev(-1)">Previous</button>
                 <button id="next" type="button" onclick="nextPrev(1)">Next</button>
             </div>
         </form>
