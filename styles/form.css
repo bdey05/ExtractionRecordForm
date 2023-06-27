@@ -80,3 +80,7 @@
 .page {
     display: none;
 }
+
+#formoutput {
+    display: none;
+}

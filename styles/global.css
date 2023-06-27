@@ -7,6 +7,10 @@
     font-family: 'Inter', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 input, button {
     all: unset;
 }
@@ -44,3 +48,6 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+input.invalid {
+    background-color: #ffdddd;
+  }

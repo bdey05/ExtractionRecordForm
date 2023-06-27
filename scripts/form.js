@@ -11,8 +11,12 @@ function showTab(n) {
     }
     if (n == (x.length - 1)) {
       document.getElementById("next").innerHTML = "Submit";
+      document.getElementById("next").type = "submit";
+      document.getElementById("extractionrecord").addEventListener("submit", handleSubmit);
     } else {
       document.getElementById("next").innerHTML = "Next";
+      document.getElementById("next").type = "button";
+      document.getElementById("extractionrecord").removeEventListener("submit", handleSubmit);
     }
 }
 
@@ -24,12 +28,14 @@ function nextPrev(n) {
     currentTab = currentTab + n;
     
     if (currentTab >= x.length) {
-      document.getElementById("extractionrecord").submit((e) => {
-        e.preventDefault();
-      });
+      //document.getElementById("extractionrecord").submit();
+      document.getElementById("previous").style.display = "none";
+      document.getElementById("next").style.display = "none";
       return false;
     }
+    
     showTab(currentTab);
+    
   }
 
 
@@ -41,8 +47,19 @@ function nextPrev(n) {
     
     for (i = 0; i < y.length; i++) {
       if (y[i].value == "") {
+        y[i].className += " invalid";
         valid = false;
+      }
+      else {
+        y[i].classList.remove("invalid");
       }
     }
     return valid; 
+  }
+
+  function handleSubmit(e)
+  {
+    e.preventDefault();
+    document.getElementById("formoutput").style.display = "block";
+    document.getElementById("formoutput").innerHTML = "Test Output";
   }
