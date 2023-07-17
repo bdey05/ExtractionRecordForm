@@ -63,3 +63,14 @@ function nextPrev(n) {
     document.getElementById("formoutput").style.display = "block";
     document.getElementById("formoutput").innerHTML = "Test Output";
   }
+
+  function addItem(groupname) {
+    let inputgroup = document.getElementById(groupname).getElementsByClassName("inputgroup")[0];
+    let oldNum = Array.from(document.getElementById(groupname).querySelectorAll(".inputnum")).pop().innerHTML.slice(-1);
+    let cln = inputgroup.cloneNode(true);
+    let newNum = Number(oldNum) + 1;
+    cln.getElementsByClassName("inputnum")[0].innerHTML = 'Extractant ' + newNum;
+    document.getElementById(groupname).getElementsByClassName("items")[0].append(cln);
+    
+
+  }

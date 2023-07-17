@@ -14,29 +14,36 @@
         <form id="extractionrecord">
             <div class="page">
                 <h2>Organic Phase</h2>
-                <div class="extractants">
+                <div id="extractants">
                     <h4>Extractants:</h4>
-                    <div class="inputgroup">
-                        <div class="inputheader">
-                            <p class="inputnum">Extractant 1</p>
-                            <button type="button" disabled><i class="fa-solid fa-trash"></i></button>
+                    <div class="items">
+                        <div class="inputgroup">
+                            <div class="inputheader">
+                                <p class="inputnum">Extractant 1</p>
+                                <button type="button" class="disabledbtn"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                            <div class="input1">
+                                <p>Identity</p>
+                                <input placeholder="Identity" type="text" required/>
+                            </div>
+                            <div class="inputunit">
+                            <div class="input2">
+                                <p>Quantity</p>
+                                <input placeholder="Quantity" type="number" required/>
+                            </div>
+                            <div class="unit">
+                                <p>Unit</p>
+                                <select name="unit" id="unitdropdown">
+                                    <option value="molarity">M</option>
+                                </select>
+                            </div>
+                            </div>
                         </div>
-                        <div class="input1">
-                            <p>Identity</p>
-                            <input placeholder="Identity" type="text" required/>
-                        </div>
-                        <div class="inputunit">
-                        <div class="input2">
-                            <p>Quantity</p>
-                            <input placeholder="Quantity" type="number" required/>
-                        </div>
-                        <div class="unit">
-                            <p>Unit</p>
-                            <select name="unit" id="unitdropdown">
-                                <option value="molarity">M</option>
-                            </select>
-                        </div>
-                        </div>
+                    </div>
+                    <div class="addItem">
+                        <button type="button" onclick="addItem('extractants')">
+                            Add New Extractant
+                        </button>
                     </div>
                 </div>
             </div>

@@ -51,3 +51,9 @@ input[type=number] {
 input.invalid {
     background-color: #ffdddd;
   }
+
+  
+button:disabled,
+button[disabled]{
+    cursor: not-allowed;
+}

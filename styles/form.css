@@ -84,3 +84,27 @@
 #formoutput {
     display: none;
 }
+
+.disabledbtn:hover {
+    cursor: auto;
+}
+
+.disabledbtn i{
+    color: gray;
+}
+
+.addItem {
+    text-align: center;
+}
+
+.addItem button {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(117, 184, 15);
+    margin: 15px;
+}
+
+.addItem button:hover {
+    cursor: pointer;
+
+}
