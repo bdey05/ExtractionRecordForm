@@ -20,7 +20,7 @@
                         <div class="inputgroup">
                             <div class="inputheader">
                                 <p class="inputnum">Extractant 1</p>
-                                <button type="button" class="disabledbtn"><i class="fa-solid fa-trash"></i></button>
+                                <button type="button" class="disabledbtn" onclick="removeItem('extractants', event)"><i class="fa-solid fa-trash"></i></button>
                             </div>
                             <div class="input1">
                                 <p>Identity</p>
@@ -33,7 +33,7 @@
                             </div>
                             <div class="unit">
                                 <p>Unit</p>
-                                <select name="unit" id="unitdropdown">
+                                <select name="unit" class="unitdropdown">
                                     <option value="molarity">M</option>
                                 </select>
                             </div>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <div class="page">
+            <!--<div class="page">
                 <h2>Aqueous Phase</h2>
                 <div class="extractants">
                     <h4>Solutes:</h4>
@@ -74,15 +74,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="changepage">
                 <button id="previous" type="button" onclick="nextPrev(-1)">Previous</button>
                 <button id="next" type="button" onclick="nextPrev(1)">Next</button>
             </div>
         </form>
-        <div id="formoutput">
+        <pre id="formoutput">
 
-        </div>
+        </pre>
     </div>
     <script src="scripts/form.js"></script>
 </body>

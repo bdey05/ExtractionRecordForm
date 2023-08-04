@@ -1,4 +1,5 @@
 var currentTab = 0; 
+var extractantCount = 1;
 showTab(currentTab); 
 
 function showTab(n) {
@@ -61,16 +62,58 @@ function nextPrev(n) {
   {
     e.preventDefault();
     document.getElementById("formoutput").style.display = "block";
-    document.getElementById("formoutput").innerHTML = "Test Output";
+    let JSONOutput = {
+      'extractants': []
+    };
+    //Array.from(document.getElementById.getElementsByClassName("inputgroup"));
+    //console.log(Array.from(document.getElementById('extractants').getElementsByClassName("inputgroup")))
+    Array.from(document.getElementById('extractants').getElementsByClassName("inputgroup")).forEach((e) => {
+      //console.log(e.getElementsByClassName("unitdropdown")[0].value);
+      let extractant = {
+        'identity': e.getElementsByClassName("input1")[0].getElementsByTagName('input')[0].value,
+        'quantity': e.getElementsByClassName("input2")[0].getElementsByTagName('input')[0].value,
+        'unit': e.getElementsByClassName("unitdropdown")[0].value
+      }
+      console.log(extractant);
+      JSONOutput.extractants = JSONOutput.extractants.concat(extractant);
+    })
+    console.log(JSONOutput);
+    document.getElementById("formoutput").innerHTML = JSON.stringify(JSONOutput, null, 7);
   }
 
   function addItem(groupname) {
     let inputgroup = document.getElementById(groupname).getElementsByClassName("inputgroup")[0];
-    let oldNum = Array.from(document.getElementById(groupname).querySelectorAll(".inputnum")).pop().innerHTML.slice(-1);
+    extractantCount++;
+    document.getElementById(groupname).getElementsByClassName("inputgroup")[0].getElementsByTagName('button')[0].classList.remove('disabledbtn');
+    //let oldNum = Array.from(document.getElementById(groupname).querySelectorAll(".inputnum")).pop().innerHTML.slice(-1);
     let cln = inputgroup.cloneNode(true);
-    let newNum = Number(oldNum) + 1;
-    cln.getElementsByClassName("inputnum")[0].innerHTML = 'Extractant ' + newNum;
+    //let newNum = Number(oldNum) + 1;
+    cln.getElementsByClassName("inputnum")[0].innerHTML = 'Extractant ' + extractantCount;
+    cln.getElementsByClassName("input1")[0].getElementsByTagName('input')[0].value = "";
+    cln.getElementsByClassName("input2")[0].getElementsByTagName('input')[0].value = "";
     document.getElementById(groupname).getElementsByClassName("items")[0].append(cln);
     
 
+  }
+
+  function removeItem(groupname, event)
+  {
+    if (extractantCount == 1)
+    {
+      return;
+    }
+    event.target.parentNode.parentNode.parentNode.remove()
+    //console.log(event.target.parentNode.parentNode.getElementsByClassName('inputnum')[0].innerHTML.slice(-1))
+    //document.getElementById(groupname).getElementsByClassName("inputgroup")[0].getElementsByTagName('button')[0].classList.add('disabledbtn');
+    console.log(document.getElementById(groupname).querySelectorAll('.inputnum'));
+    for (let i = 1; i <= extractantCount - 1; i++)
+    {
+      //console.log(Array.from(document.getElementById(groupname).querySelectorAll('.inputnum'))[i-1].innerHTML) 
+      Array.from(document.getElementById(groupname).querySelectorAll('.inputnum'))[i-1].innerHTML = 'Extractant ' + i;
+    }
+    extractantCount--;
+    if (extractantCount == 1)
+    {
+      document.getElementById(groupname).getElementsByClassName("inputgroup")[0].getElementsByTagName('button')[0].classList.add('disabledbtn');
+    }
   }
